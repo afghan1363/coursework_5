@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "coursework-5"
+version = "0.1.0"
+description = "В проекте реализовано получение данных о десяти работодателях и их вакансиях и заполнение этими данными таблиц PosgreSQL."
+authors = ["Maxim Abavi <afghan1363@ya.ru>"]
+readme = "README.md"
+packages = [{include = "coursework_5"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+psycopg2 = "^2.9.9"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
