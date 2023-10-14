@@ -17,5 +17,6 @@ def format_vacancies_data(answer_data):
                                           'description': data['items'][0]['snippet']['responsibility'],
                                           'salary_from': data['items'][0]['salary'].get('from'),
                                           'salary_to': data['items'][0]['salary'].get('to'),
+                                          'city': data['items']['area']['name'],
                                           'vacancy_url': data['items'][0]['alternate_url']})
     return vacancy_data
