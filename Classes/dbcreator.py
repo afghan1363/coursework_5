@@ -27,7 +27,8 @@ class DBCreator:
                 CREATE TABLE employers (
                 employer_id INT PRIMARY KEY,
                 employer_name VARCHAR(100) NOT NULL,
-                employer_url VARCHAR NOT NULL
+                employer_url VARCHAR NOT NULL,
+                vacancy_count INT NOT NULL
                 )
                 """)
             with conn.cursor() as cur:
@@ -56,8 +57,9 @@ class DBCreator:
                     employer_id = data['employer_id']
                     employer_name = data['employer_name']
                     employer_url = data['employer_url']
-                    cur.executemany("INSERT INTO employers VALUES (%s, %s, %s)",
-                                    [(employer_id, employer_name, employer_url)])
+                    vacancy_count = data['vacancy_count']
+                    cur.executemany("INSERT INTO employers VALUES (%s, %s, %s, %s)",
+                                    [(employer_id, employer_name, employer_url, vacancy_count)])
             conn.commit()
             conn.close()
         except Exception:
