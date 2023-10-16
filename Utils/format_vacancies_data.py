@@ -1,5 +1,6 @@
 
 def format_vacancies_data(answer_data_vac, answer_data_emp):
+    """Функция для форматирования полученных данных в более наглядный вид"""
     vacancy_data = {'employers': [],
                     'vacancies': []}
     for data in answer_data_emp:

@@ -7,6 +7,7 @@ from Utils.get_vacancies_data import get_vacancies_data, get_emp_data
 
 
 def query_create_db():
+    """Интерфейс для создания БД"""
     path_to_connection_config = os.path.join('dbconn.ini')
     connect_params = config(filename=path_to_connection_config)
     company_ids = [64174, 1740, 4023, 2324020, 328931, 2016792, 4219, 6093, 39305, 1439]
@@ -24,6 +25,7 @@ def query_create_db():
 
 
 def user_interface():
+    """Интерфейс пользователя"""
     flag = 5
     while flag == 5:
         choice = input("""1 - Создать базу данных и заполнить таблицы        

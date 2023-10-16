@@ -2,12 +2,16 @@ import psycopg2
 
 
 class DBCreator:
+    """
+    Создание БД и таблиц
+    """
     def __init__(self, set_db_connect, data_for_tables, db_name='headhunter'):
         self.set_db_connect = set_db_connect
         self.data_for_tables = data_for_tables
         self.db_name = db_name
 
     def create_db(self):
+        """Создание БД"""
         try:
             conn = psycopg2.connect(dbname='postgres', **self.set_db_connect)
             conn.autocommit = True
@@ -20,6 +24,7 @@ class DBCreator:
             print("Не удалось создать базу данных!")
 
     def create_tables(self):
+        """Создание таблиц"""
         try:
             conn = psycopg2.connect(dbname=self.db_name, **self.set_db_connect)
             with conn.cursor() as cur:
@@ -50,6 +55,7 @@ class DBCreator:
             print("Не удалось создать таблицы!")
 
     def fill_tables(self):
+        """Заполнение таблиц"""
         try:
             conn = psycopg2.connect(dbname=self.db_name, **self.set_db_connect)
             with conn.cursor() as cur:

@@ -2,6 +2,9 @@ import psycopg2
 
 
 class DBManager:
+    """
+    Класс для работы с БД
+    """
 
     def __init__(self, set_db_connect, db_name='headhunter'):
         self.set_db_connect = set_db_connect
@@ -64,5 +67,6 @@ class DBManager:
         return answer
 
     def close_connection(self):
+        """Метод для закрытия подключений к БД"""
         self.cursor.close()
         self.conn.close()

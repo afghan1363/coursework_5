@@ -4,6 +4,7 @@ import time
 
 
 def get_vacancies_data(emp_ids: list):
+    """Получение данных вакансии"""
     answer_hh = {'items': []}
     for emp_id in emp_ids:
         params = {
@@ -22,6 +23,7 @@ def get_vacancies_data(emp_ids: list):
 
 
 def get_emp_data(emp_ids: list):
+    """Получение данных работодателя"""
     answer_hh_emp = []
     for emp_id in emp_ids:
         params = {
