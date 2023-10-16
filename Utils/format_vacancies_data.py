@@ -5,7 +5,8 @@ def format_vacancies_data(answer_data_vac, answer_data_emp):
     for data in answer_data_emp:
         vacancy_data['employers'].append({'employer_id': data['items'][0]['employer']['id'],
                                           'employer_name': data['items'][0]['employer']['name'],
-                                          'employer_url': data['items'][0]['employer']['alternate_url']})
+                                          'employer_url': data['items'][0]['employer']['alternate_url'],
+                                          'vacancy_count': data['found']})
     for data in answer_data_vac['items']:
         if not data['salary']:
             data['salary'] = {}
