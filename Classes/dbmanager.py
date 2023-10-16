@@ -40,7 +40,7 @@ class DBManager:
         self.cursor.execute("""SELECT AVG((salary_from + salary_to) / 2)
         FROM vacancies;""")
         answer = self.cursor.fetchall()[0][0]
-        print(f"Средняя зарплата по вакансиям: {answer}")
+        print(f"Средняя зарплата по вакансиям: {round(answer, 1)}")
 
     def get_vacancies_with_higher_salary(self):
         """Получает список всех вакансий, у которых зарплата
@@ -62,3 +62,7 @@ class DBManager:
         OR description ILIKE '%{keyword}%';""")
         answer = [print(data) for data in self.cursor.fetchall()]
         return answer
+
+    def close_connection(self):
+        self.cursor.close()
+        self.conn.close()
