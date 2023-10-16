@@ -46,11 +46,13 @@ def user_interface():
 3 - Получить среднюю зарплату по вакансиям.
 4 - Получить список всех вакансий, у которых зарплата выше средней по всем вакансиям.
 5 - Получить список всех вакансий, в названии которых содержатся переданные в метод слова.
-0 - Выход
-10 - Обновить Базу данных
+0 - Выход.
+10 - Вернуться в начальное меню.
 """)
         db_manager = DBManager(set_db_connect=connect_params)
-        if answer == "1":
+        if answer == "0":
+            break
+        elif answer == "1":
             db_manager.get_companies_and_vacancies_count()
         elif answer == "2":
             db_manager.get_all_vacancies()
@@ -61,8 +63,8 @@ def user_interface():
         elif answer == "5":
             key = input("Введите слово для поиска: ")
             db_manager.get_vacancies_with_keyword(keyword=key)
-        elif answer == "0":
-            break
-        else:
-
+        elif answer == "10":
+            db_manager.close_connection()
             user_interface()
+        else:
+            print("Неверный запрос")
