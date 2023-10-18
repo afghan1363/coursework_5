@@ -66,6 +66,7 @@ def user_interface():
             key = input("Введите слово для поиска: ")
             db_manager.get_vacancies_with_keyword(keyword=key)
         elif answer == "10":
+            flag = 5
             db_manager.close_connection()
             user_interface()
         else:
